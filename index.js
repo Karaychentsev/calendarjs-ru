@@ -1,8 +1,10 @@
 var moment = require('moment');
+require('moment/locale/ru')
 
 var Calendar = (function() {
 
   function Calendar(year, month) {
+    moment.locale('ru')
     this.moment = moment();
 
     if (year) {
@@ -20,14 +22,14 @@ var Calendar = (function() {
     this.moment.date(1);
   }
 
-  Calendar.prototype.daysOfWeekStrings = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  Calendar.prototype.daysOfWeekStrings = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   Calendar.prototype.monthStrings = ["Jan", "Feb", "Apr", "Mar", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   Calendar.prototype.createDay = function(moment) {
     return {
       month: moment.month() + 1, // [0, 11]
       date: moment.date(),
-      day: moment.day(),
+      day: moment.weekday(),
       year: moment.year(),
       dayOfYear: moment.dayOfYear()
     };
@@ -56,7 +58,7 @@ var Calendar = (function() {
     var d = 1;
     while (d <= daysInMonth) {
       // finish and close off the week
-      if (m.day() === 0 && w.length) {
+      if (m.weekday() === 0 && w.length) {
         weeks.push(w);
         w = [];
       }
@@ -68,7 +70,7 @@ var Calendar = (function() {
       m.add(1, 'days');
       d++;
     }
-
+    //console.log('weeks', weeks)
     // add the last week
     if (w.length) {
       weeks.push(w);

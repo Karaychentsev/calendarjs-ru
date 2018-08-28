@@ -1,5 +1,5 @@
 {
-  "name": "calendarjs",
+  "name": "calendarjs-ru",
   "version": "0.2.0",
   "description": "Javascript component to creating calendars.",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/sjlu/calendarjs.git"
+    "url": "git://github.com/Karaychentsev/calendarjs-ru.git"
   },
   "author": "Steven Lu <tacticalazn@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sjlu/calendarjs/issues"
+    "url": "https://github.com/Karaychentsev/calendarjs-ru/issues"
   },
-  "homepage": "https://github.com/sjlu/calendarjs",
+  "homepage": "https://github.com/Karaychentsev/calendarjs-ru",
   "devDependencies": {
     "assert": "^1.1.1",
     "mocha": "^5.0.0"
