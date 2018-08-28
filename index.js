@@ -1,10 +1,9 @@
 var moment = require('moment');
-require('moment/locale/ru')
 
 var Calendar = (function() {
 
   function Calendar(year, month) {
-    this.moment = moment().locale('ru');
+    this.moment = moment();
 
     if (year) {
       this.moment.year(year);
@@ -52,7 +51,7 @@ var Calendar = (function() {
     var weeks = [];
 
     w = [];
-    m = moment(this.moment).locale('ru');
+    m = moment(this.moment);
     var daysInMonth = this.moment.daysInMonth();
     var d = 1;
     while (d <= daysInMonth) {
@@ -79,7 +78,7 @@ var Calendar = (function() {
     // and last weeks if applicable.
     if (opts.withOtherMonthDays) {
       w = weeks[0];
-      m = moment(this.moment).subtract(1, 'days').locale('ru');
+      m = moment(this.moment).subtract(1, 'days');
       while (w.length < 7) {
         w.unshift(this.createDay(m));
         m.subtract(1, 'days');
@@ -87,7 +86,7 @@ var Calendar = (function() {
       weeks[0] = w;
 
       w = weeks[weeks.length-1];
-      m = moment(this.moment).add(1, 'months').locale('ru');
+      m = moment(this.moment).add(1, 'months');
       while (w.length < 7) {
         w.push(this.createDay(m));
         m.add(1, 'day');
